@@ -14,6 +14,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     var diceArray = [SCNNode]()
+    var condition = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,13 +91,36 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let results = sceneView.hitTest(touchLocation, types: .existingPlaneUsingExtent)
             if let hitResult = results.first {
                 let scene = SCNScene(named: "art.scnassets/diceCollada.scn")
+                if condition {
                 if let diceNode = scene?.rootNode.childNode(withName: "Dice", recursively: true) {
                     diceNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y + diceNode.boundingSphere.radius, hitResult.worldTransform.columns.3.z)
                     diceArray.append(diceNode)
                     sceneView.scene.rootNode.addChildNode(diceNode)
                     roll(dice: diceNode)
+                    condition = false
+                }
                 }
             }
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //1. Get The Current Touch Point
+        guard let currentTouchPoint = touches.first?.location(in: sceneView) else {
+            return
+        }
+            //2. Get The Next Feature Point Etc
+            guard let hitTest = sceneView.hitTest(currentTouchPoint, types: .existingPlane).first else { return }
+
+        //3. Convert To World Coordinates
+        let worldTransform = hitTest.worldTransform
+
+        //4. Set The New Position
+        let newPosition = SCNVector3(worldTransform.columns.3.x, worldTransform.columns.3.y, worldTransform.columns.3.z)
+
+        //5. Apply To The Node
+        for dice in diceArray {
+        dice.simdPosition = SIMD3(newPosition.x, newPosition.y, newPosition.z)
         }
     }
     
@@ -122,6 +146,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 dice.removeFromParentNode()
             }
         }
+        condition = true
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
