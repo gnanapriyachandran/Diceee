@@ -85,24 +85,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         rollAll()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let touchLocation = (touch.location(in: sceneView))
-            let results = sceneView.hitTest(touchLocation, types: .existingPlaneUsingExtent)
-            if let hitResult = results.first {
-                let scene = SCNScene(named: "art.scnassets/diceCollada.scn")
-                if condition {
-                if let diceNode = scene?.rootNode.childNode(withName: "Dice", recursively: true) {
-                    diceNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y + diceNode.boundingSphere.radius, hitResult.worldTransform.columns.3.z)
-                    diceArray.append(diceNode)
-                    sceneView.scene.rootNode.addChildNode(diceNode)
-                    roll(dice: diceNode)
-                    condition = false
-                }
-                }
-            }
-        }
-    }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         //1. Get The Current Touch Point
@@ -114,6 +96,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         //3. Convert To World Coordinates
         let worldTransform = hitTest.worldTransform
+        
+        let scene = SCNScene(named: "art.scnassets/diceCollada.scn")
+        if condition {
+        if let diceNode = scene?.rootNode.childNode(withName: "Dice", recursively: true) {
+            diceNode.position = SCNVector3(worldTransform.columns.3.x, worldTransform.columns.3.y + diceNode.boundingSphere.radius, worldTransform.columns.3.z)
+            diceArray.append(diceNode)
+            sceneView.scene.rootNode.addChildNode(diceNode)
+            roll(dice: diceNode)
+            condition = false
+        }
+        }
 
         //4. Set The New Position
         let newPosition = SCNVector3(worldTransform.columns.3.x, worldTransform.columns.3.y, worldTransform.columns.3.z)
@@ -125,8 +118,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func roll(dice: SCNNode) {
-        let randomX = Float(arc4random_uniform(6)) * Float.pi / 2
-        let randomY = Float(arc4random_uniform(6)) * Float.pi / 2
+        let randomX = Float(arc4random_uniform(4) + 1) * Float.pi / 2
+        let randomY = Float(arc4random_uniform(4) + 1) * Float.pi / 2
         let sceneAction = SCNAction.rotateBy(x: CGFloat(randomX), y: 0, z: CGFloat(randomY), duration: 0.5)
         dice.runAction(sceneAction)
     }
