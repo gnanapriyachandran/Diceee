@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A685556252B8E1200C41D9A /* SpotGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9A685555252B8E1200C41D9A /* SpotGif.gif */; };
 		9A9EF6BD249FB8BC002AB71D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9EF6BC249FB8BC002AB71D /* AppDelegate.swift */; };
 		9A9EF6BF249FB8BC002AB71D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9EF6BE249FB8BC002AB71D /* art.scnassets */; };
 		9A9EF6C1249FB8BC002AB71D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9EF6C0249FB8BC002AB71D /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A685555252B8E1200C41D9A /* SpotGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = SpotGif.gif; sourceTree = "<group>"; };
 		9A9EF6B9249FB8BC002AB71D /* Diceee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diceee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9EF6BC249FB8BC002AB71D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A9EF6BE249FB8BC002AB71D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A685557252B8E2F00C41D9A /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+				9A685555252B8E1200C41D9A /* SpotGif.gif */,
+			);
+			path = Gif;
+			sourceTree = "<group>";
+		};
 		9A9EF6B0249FB8BC002AB71D = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +66,7 @@
 		9A9EF6BB249FB8BC002AB71D /* Diceee */ = {
 			isa = PBXGroup;
 			children = (
+				9A685557252B8E2F00C41D9A /* Gif */,
 				9A9EF6BC249FB8BC002AB71D /* AppDelegate.swift */,
 				9A9EF6C0249FB8BC002AB71D /* ViewController.swift */,
 				9A9EF6BE249FB8BC002AB71D /* art.scnassets */,
@@ -126,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A9EF6BF249FB8BC002AB71D /* art.scnassets in Resources */,
+				9A685556252B8E1200C41D9A /* SpotGif.gif in Resources */,
 				9A9EF6C9249FB8BF002AB71D /* LaunchScreen.storyboard in Resources */,
 				9A9EF6C6249FB8BF002AB71D /* Assets.xcassets in Resources */,
 				9A9EF6C4249FB8BD002AB71D /* Main.storyboard in Resources */,
@@ -198,6 +210,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -258,6 +271,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -285,13 +299,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X345LXTDS8;
+				DEVELOPMENT_TEAM = W6NQT6828K;
 				INFOPLIST_FILE = Diceee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sistechy.Diceee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sistechy.TossTheDice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -303,13 +317,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X345LXTDS8;
+				DEVELOPMENT_TEAM = W6NQT6828K;
 				INFOPLIST_FILE = Diceee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sistechy.Diceee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sistechy.TossTheDice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

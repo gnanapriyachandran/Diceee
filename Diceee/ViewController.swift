@@ -23,9 +23,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        //sceneView.showsStatistics = true
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        //sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
 //MARK:- Creating and adding new ARobjects
         // Create a new scene
@@ -151,15 +151,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
         let planeNode = SCNNode()
         //planeAnchor.extent.x - estimated width and height of plane
-        planeNode.position = SCNVector3(planeAnchor.extent.x, 0, planeAnchor.extent.z)
+//        planeNode.position = SCNVector3(planeAnchor.extent.x, 0, planeAnchor.extent.z)
         //planes are generally vertically we need to transform it as horizontal
         //Using -Float.pi to rotate clockwise
         planeNode.transform = SCNMatrix4MakeRotation(-Float.pi/2, 1, 0, 0)
         let material = SCNMaterial()
         material.diffuse.contents = UIImage(named: "art.scnassets/grid.png")
-        plane.materials = [material]
+        //plane.materials = [material]
         planeNode.geometry = plane
-        node.addChildNode(planeNode)
+        //node.addChildNode(planeNode)
     }
     
 }
