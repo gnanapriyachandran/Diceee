@@ -42,7 +42,6 @@
 		9A685557252B8E2F00C41D9A /* Gif */ = {
 			isa = PBXGroup;
 			children = (
-				9A685555252B8E1200C41D9A /* SpotGif.gif */,
 			);
 			path = Gif;
 			sourceTree = "<group>";
@@ -50,6 +49,7 @@
 		9A9EF6B0249FB8BC002AB71D = {
 			isa = PBXGroup;
 			children = (
+				9A685555252B8E1200C41D9A /* SpotGif.gif */,
 				9A9EF6BB249FB8BC002AB71D /* Diceee */,
 				9A9EF6BA249FB8BC002AB71D /* Products */,
 			);
